@@ -1,0 +1,31 @@
+Registration Confirmation Email
+
+Assignment Brief:
+You are tasked with creating a registration confirmation email for an online platform that collects customer information during the signup process. The email should confirm specific details provided by the customer, including their preferences, phone number, address, email, and date of birth. If any information is incorrect, customers should be prompted to click a link to update their details.
+Requirements:
+The marketer would like you to populate the email template with the necessary customer details.
+First name is to be cleaned up.
+The full address should be in this format “123 Main St, CA, 12345, NSW, USA”
+Email is to be displayed in lowercase
+Phone number and DOB can be displayed as is.
+
+
+Input the variables into the template below.
+
+Hi <First Name>, 
+    
+    Thank you for registering with us!
+    
+    Here are the details we have on file for you:
+    
+    Name: <Full Name>
+    Preferences: <Preferences>
+    Phone Number: <Phone>
+    Address: <Full Address>
+    Email: <Email>
+    Date of Birth: <DOB>
+    
+    If any of these details are incorrect, please click here to update your information.
+    
+    Best regards
+    The Team
