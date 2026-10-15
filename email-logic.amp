@@ -1,0 +1,41 @@
+%%[
+/* 1. Retrieve all required fields using Bracket Notation */
+SET @firstName     = [First Name]
+SET @lastName      = [Last Name]
+SET @pref          = [Preferences]
+SET @phone         = [Phone Number]
+SET @streetAddress = [Street Address]
+SET @postcode      = [Postcode]
+SET @state         = [State]
+SET @country       = [Country]
+SET @email         = [Email]
+SET @dob           = [Date of Birth]
+
+/* 2. Logic for name cleaning (Step-by-step to avoid parser crash) */
+SET @firstNameTrim  = Trim(@firstName)
+SET @finalFirstName = ProperCase(@firstNameTrim)
+
+SET @lastNameTrim   = Trim(@lastName)
+SET @finalLastName  = ProperCase(@lastNameTrim)
+
+SET @rawFullName    = Concat(@finalFirstName, " ", @finalLastName)
+SET @finalFullName  = Trim(@rawFullName)
+
+/* 3. Logic for email formatting */
+SET @emailTrim  = Trim(@email)
+SET @emailLower = Lowercase(@emailTrim)
+
+/* 4. Greeting logic */
+IF NOT EMPTY(@finalFirstName) THEN
+    SET @greeting = Concat("Hi ", @finalFirstName, ",")
+ELSE
+    SET @greeting = "Hi,"
+ENDIF
+
+/* 5. Logic for Full Address */
+IF NOT EMPTY(@streetAddress) AND NOT EMPTY(@state) AND NOT EMPTY(@postcode) AND NOT EMPTY(@country) THEN
+    SET @fullAddress = Concat(@streetAddress, ", ", @state, " ", @postcode, ", ", @country)
+ELSE
+    SET @fullAddress = ""
+ENDIF
+]%%
